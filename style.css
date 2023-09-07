@@ -74,7 +74,7 @@ header nav ul li {
 }
 
 body {
-  height: 100vh;
+  height: 100%;
 }
 
 #content-body {
@@ -82,17 +82,11 @@ body {
 }
 #main-body {
   display: grid;
-  grid-template-areas:
-    "banner banner banner s1"
-    "banner banner banner row1"
-    " row2 column1 column1 row1"
-    " row2 s2 s3 s4";
-  grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(316px, 1fr));
   gap: 1.5rem;
   padding: 2.5rem 2.5rem 7.5rem 2.5rem;
   justify-content: center;
-  grid-auto-columns: auto;
-  grid-auto-rows: auto;
+  grid-template-rows: repeat(4, minmax(240px, 1fr));
 }
 #main-banner {
   background: url("public/images/green-chameleon-176136.png"),
@@ -137,6 +131,7 @@ body {
   grid-column: 2 / 4;
   grid-row: 3;
 }
+
 #main-row2 {
   height: 36.25rem;
   border: 1px solid #f2f3f6;
@@ -309,20 +304,17 @@ body {
   border-bottom: 0.125rem solid #f2f3f6;
   gap: 1.56rem;
   margin-bottom: 1.56rem;
+  color: #1d1f24;
+  font-family: Lato;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px; /* 144.444% */
+  letter-spacing: -0.2px;
+  padding-right: 24px;
 }
 #row2-ol li:last-child {
   border-bottom: 0;
-}
-#row2-ol li span {
-  width: fit-content;
-  height: fit-content;
-  color: #1d1f24;
-  font-family: Lato;
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.625rem; /* 144.444% */
-  letter-spacing: -0.0125rem;
 }
 .row2-li-num {
   color: #1d1f24;
@@ -356,8 +348,9 @@ body {
 #s2-button,
 #s3-button,
 #s4-button {
-  margin-top: 1.88rem;
+  position: absolute;
   margin-bottom: 1.19rem;
+  top: 16px;
 }
 #s4-button {
   width: 8.5625rem;
@@ -366,6 +359,7 @@ body {
 #s2-title,
 #s3-title,
 #s4-title {
+  position: absolute;
   color: #fff;
   font-family: Lato;
   font-size: 1.5rem;
@@ -374,6 +368,7 @@ body {
   line-height: 1.875rem; /* 125% */
   letter-spacing: -0.0125rem;
   margin-left: 1.56rem;
+  top: 30%;
 }
 #s4-title {
   width: 15.3125rem;
@@ -488,3 +483,13 @@ footer nav ul li {
   height: 40px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  #main-column1 {
+    display: none;
+  }
+  header nav {
+    display: none;
+  }
+}
+/* 1154 height */
